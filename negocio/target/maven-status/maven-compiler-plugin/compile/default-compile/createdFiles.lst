@@ -1,0 +1,5 @@
+mx\desarrollo\facade\FacadeUnidadAprendizaje.class
+mx\desarrollo\delegate\DelegateProfesor.class
+mx\desarrollo\delegate\DelegateUnidadAprendizaje.class
+mx\desarrollo\facade\FacadeProfesor.class
+mx\desarrollo\integracion\ServiceFacadeLocator.class

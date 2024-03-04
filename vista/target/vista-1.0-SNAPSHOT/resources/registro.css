@@ -1,0 +1,180 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+.Registro-Profesor {
+  width: 1440px;
+  height: 1024px;
+  flex-grow: 0;
+  padding: 90px 374px 159px 372px;
+  background-color: #5f984f;
+}
+
+.Registro-profesores {
+  width: 418px;
+  height: 55px;
+  margin: 0 137px 129px 139px;
+  font-family: Roboto;
+  font-size: 47px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #1e1e1e;
+}
+
+.ID-delProfesor {
+  width: 150px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 506px 19px 0;
+  font-family: Roboto;
+  font-size: 21px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.Rectangle-2 {
+  width: 649px;
+  height: 49px;
+  flex-grow: 0;
+  margin: 19px 0 0 7px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 2px #000;
+  background-color: #fff;
+}
+
+.Nombres {
+  width: 128px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 534px 18px 0;
+  font-family: Roboto;
+  font-size: 21px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.Rectangle-3 {
+  width: 649px;
+  height: 49px;
+  flex-grow: 0;
+  margin: 18px 0 0 13px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 2px #000;
+  background-color: #fff;
+}
+
+.Apellido-Paterno {
+  width: 228.4px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 110.6px 18px 0;
+  font-family: Roboto;
+  font-size: 21px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.Rectangle-4 {
+  width: 305.9px;
+  height: 49px;
+  flex-grow: 0;
+  margin: 18px 0 0 33.1px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 2px #000;
+  background-color: #fff;
+}
+
+.Apellido-Materno {
+  width: 228.4px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 99.6px 22px 0;
+  font-family: Roboto;
+  font-size: 21px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.Rectangle-5 {
+  width: 305.9px;
+  height: 49px;
+  flex-grow: 0;
+  margin: 22px 0 0 22.1px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 2px #000;
+  background-color: #fff;
+}
+
+.RFC {
+  width: 116.2px;
+  height: 18px;
+  flex-grow: 0;
+  margin: 0 577.8px 24px 0;
+  font-family: Roboto;
+  font-size: 21px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1e1e1e;
+}
+
+.Rectangle-6 {
+  width: 655.6px;
+  height: 49px;
+  flex-grow: 0;
+  margin: 24px 0 0 38.4px;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 2px #000;
+  background-color: #fffdfd;
+}
+
+.Rectangle-7 {
+  width: 151px;
+  height: 50px;
+  margin: 47px 22px 0 193px;
+  border-radius: 20px;
+  background-color: #448a30;
+}
+
+.Rectangle-8 {
+  width: 151px;
+  height: 50px;
+  margin: 47px 126px 0 67px;
+  border-radius: 20px;
+  background-color: #448a30;
+}
+

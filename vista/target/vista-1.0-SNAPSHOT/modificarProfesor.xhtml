@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Modificar profesor</title>
+        <link href="#{request.contextPath}/resources/style.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body>
+        <p:panel header="Modificaciones de Profesor" style="width: 400px; margin: 20px auto;">
+            <h:form id="registro">
+                <p:outputLabel value="ID del Profesor"/>
+                <p:inputText value="#{ProfesorBeanUI.profesorSeleccionado.idprofesor}" disabled="true" />
+                <p:outputLabel value="Nombre(s)"/>
+                <p:inputText value="#{ProfesorBeanUI.profesorSeleccionado.nombre}" />
+                <p:outputLabel value="Apellido Paterno"/>
+                <p:inputText value="#{ProfesorBeanUI.profesorSeleccionado.apellidoPaterno}" />
+                <p:outputLabel value="Apellido Materno"/>
+                <p:inputText value="#{ProfesorBeanUI.profesorSeleccionado.apellidoMaterno}" />
+                <p:outputLabel value="RFC"/>
+                <p:inputText value="#{ProfesorBeanUI.profesorSeleccionado.rfc}" />
+                <p:outputLabel value="Unidad de Aprendizaje"/>
+                <p:selectCheckboxMenu id="unidad" value="#{ProfesorBeanUI.unidadselec}" filter="true" filterMatchMode="contains"
+                                      label="Unidades">
+                    <f:selectItems  var="ua" value="#{UnidadAprendizajeBeanUI.unidades}" itemLabel="#{ua.nombreUnidad}"
+                                    itemValue="#{ua.idunidadAprendizaje}"/>
+                </p:selectCheckboxMenu>
+                <br></br>
+                <br></br>
+                <p:commandButton value="Modificar" action="#{ProfesorBeanUI.modificar()}" update="registro mensajes" style="margin: 10px;"/>
+                <p:commandButton value="Volver a consultas" action="consultaProfesor.xhtml" styleClass="button-volver" style="margin: 10px;"/>
+                <br/><br/><br/>
+            </h:form>
+            <p:messages id="mensajes" showDetail="true" closable="true" />
+        </p:panel>
+    </h:body>
+</html>

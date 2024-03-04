@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+.body{
+    background: blueviolet;
+}
+
+#registro {
+    text-align: center; 
+}
+
+#registro label {
+    display: block; 
+    text-align: left; 
+    margin-bottom: 10px; 
+}
+
+#registro input[type="text"] {
+    width: 100%; 
+    margin-bottom: 10px; 
+}
+
+#registro button {
+    margin-right: 10px; 
+}

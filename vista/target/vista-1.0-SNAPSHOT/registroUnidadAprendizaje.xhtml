@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      >
+    
+    <h:head>
+        <title>Registro Unidad de Aprendizaje</title>
+        <link href="#{request.contextPath}/resources/style.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    
+    <h:body>
+        <p:panel header="Registro de Unidades de Aprendizaje" style="width: 400px; margin: 20px auto;">
+            <h:form id="registro">
+                <p:outputLabel value="ID Unidad de Aprendizaje"/>
+                <p:inputText value="#{UnidadAprendizajeBeanUI.unidadAprendizaje.idunidadAprendizaje}" />
+                <p:outputLabel value="Nombre de la Unidad"/>
+                <p:inputText value="#{UnidadAprendizajeBeanUI.unidadAprendizaje.nombreUnidad}" />
+                <p:outputLabel value="Horas de Clase"/>
+                <p:inputText value="#{UnidadAprendizajeBeanUI.unidadAprendizaje.horasClase}" />
+                <p:outputLabel value="Horas de Taller"/>
+                <p:inputText value="#{UnidadAprendizajeBeanUI.unidadAprendizaje.horasTaller}" />
+                <p:outputLabel value="Horas de Laboratorio"/>
+                <p:inputText value="#{UnidadAprendizajeBeanUI.unidadAprendizaje.horasLaboratorio}" />
+                <p:commandButton value="Agregar" action="#{UnidadAprendizajeBeanUI.guardar()}" update="registro mensajes" />
+                <p:commandButton type="reset" value="Limpiar Campos" style="margin: 10px;" />
+                <p:commandButton value="Volver al Inicio" action="index.xhtml" styleClass="button-volver" />
+                <br/><br/>
+                <p:button value="Registro de Profesores"  outcome="registroProfesor.xhtml"/>
+            </h:form>
+            <!-- Agregar un componente p:messages para mostrar mensajes -->
+            <p:messages id="mensajes" showDetail="true" closable="true" />
+        </p:panel>
+    </h:body>
+</html>
