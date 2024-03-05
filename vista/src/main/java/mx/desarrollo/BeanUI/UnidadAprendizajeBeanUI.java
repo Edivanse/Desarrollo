@@ -39,6 +39,20 @@ public class UnidadAprendizajeBeanUI implements Serializable {
         facadeUnidadAprendizaje = new FacadeUnidadAprendizaje();
     }
 
+//    public void actualizar() {
+//        profesor = new Profesor();
+//        profesores = profesorhelper.consultar();
+//        facadeProfesor = new FacadeProfesor();
+//        unidadselec = new ArrayList<String>();
+//        profesorSeleccionado = new Profesor();
+//    }
+    public void actualizar() {
+        unidadAprendizaje = new UnidadAprendizaje();
+        unidades = new ArrayList<UnidadAprendizaje>();
+        unidades = unidadAprendizajehelper.consultar();
+        unidadSeleccionada = new UnidadAprendizaje();
+    }
+
     public UnidadAprendizajeHelper getUnidadAprendizajehelper() {
         return unidadAprendizajehelper;
     }
@@ -65,13 +79,19 @@ public class UnidadAprendizajeBeanUI implements Serializable {
 
     public void guardar() {
 
-        if (unidadAprendizaje.getHorasClase() <= 0 || unidadAprendizaje.getHorasTaller() <= 0 || unidadAprendizaje.getHorasLaboratorio() <= 0) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Todos los campos son obligatorios"));
-            return;
+        String horasclase = String.valueOf(unidadAprendizaje.getHorasClase());
+        String horastaller = String.valueOf(unidadAprendizaje.getHorasTaller());
+        String horaslab = String.valueOf(unidadAprendizaje.getHorasLaboratorio());
+
+        for (UnidadAprendizaje u : unidades) {
+            if (u.getIdunidadAprendizaje() == unidadAprendizaje.getIdunidadAprendizaje()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Ya existe ese ID"));
+                return;
+            }
         }
-        
-        if (unidadAprendizaje.getNombreUnidad().matches(".*\\d.*")) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "No", "El nombre no puede contener numeros"));
+
+        if (unidadAprendizaje.getNombreUnidad().isEmpty() || horasclase.isEmpty() || horastaller.isEmpty() || horaslab.isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Todos los campos son obligatorios"));
             return;
         }
 
@@ -82,29 +102,28 @@ public class UnidadAprendizajeBeanUI implements Serializable {
             return;
         }
 
-        String horasclase = String.valueOf(unidadAprendizaje.getHorasClase());
-
         if (!horasclase.matches("\\d+")) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de clase solo pueden contener numeros"));
             return;
         }
-
-        String horastaller = String.valueOf(unidadAprendizaje.getHorasTaller());
 
         if (!horastaller.matches("\\d+")) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de taller solo pueden contener numeros"));
             return;
         }
 
-        String horaslab = String.valueOf(unidadAprendizaje.getHorasLaboratorio());
-
         if (!horaslab.matches("\\d+")) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de laboratorio solo pueden contener numeros"));
             return;
         }
 
+        if (unidadAprendizaje.getNombreUnidad().matches(".*\\d.*")) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "No", "El nombre no puede contener numeros"));
+            return;
+        }
+
         unidadAprendizajehelper.registrar(unidadAprendizaje);
-        unidadAprendizaje = new UnidadAprendizaje();
+        actualizar();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro exitoso", null));
     }
 
@@ -118,45 +137,44 @@ public class UnidadAprendizajeBeanUI implements Serializable {
 
     public void modificarUnidad() {
 
-//        if (unidadAprendizaje.getHorasClase() <= 0 || unidadAprendizaje.getHorasTaller() <= 0 || unidadAprendizaje.getHorasLaboratorio() <= 0) {
-//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Todos los campos son obligatorios"));
-//            return;
-//        }
-//        if (unidadAprendizaje.getNombreUnidad().matches(".*\\d.*")) {
-//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "No", "El nombre no puede contener numeros"));
-//            return;
-//        }
+        String horasclase = String.valueOf(unidadAprendizaje.getHorasClase());
+        String horastaller = String.valueOf(unidadAprendizaje.getHorasTaller());
+        String horaslab = String.valueOf(unidadAprendizaje.getHorasLaboratorio());
 
-//        String id = String.valueOf(unidadAprendizaje.getIdunidadAprendizaje());
-//
-//        if (!id.matches("\\d+")) {
-//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "El ID solo pueden contener numeros"));
-//            return;
-//        }
-//
-//        String horasclase = String.valueOf(unidadAprendizaje.getHorasClase());
-//
-//        if (!horasclase.matches("\\d+")) {
-//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de clase solo pueden contener numeros"));
-//            return;
-//        }
-//
-//        String horastaller = String.valueOf(unidadAprendizaje.getHorasTaller());
-//
-//        if (!horastaller.matches("\\d+")) {
-//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de taller solo pueden contener numeros"));
-//            return;
-//        }
-//
-//        String horaslab = String.valueOf(unidadAprendizaje.getHorasLaboratorio());
-//
-//        if (!horaslab.matches("\\d+")) {
-//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de laboratorio solo pueden contener numeros"));
-//            return;
-//        }
+        for (UnidadAprendizaje u : unidades) {
+            if (u.getIdunidadAprendizaje() == unidadAprendizaje.getIdunidadAprendizaje()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Ya existe ese ID"));
+                return;
+            }
+        }
+
+        if (unidadAprendizaje.getNombreUnidad().isEmpty() || horasclase.isEmpty() || horastaller.isEmpty() || horaslab.isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Todos los campos son obligatorios"));
+            return;
+        }
+
+        if (!horasclase.matches("\\d+")) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de clase solo pueden contener numeros"));
+            return;
+        }
+
+        if (!horastaller.matches("\\d+")) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de taller solo pueden contener numeros"));
+            return;
+        }
+
+        if (!horaslab.matches("\\d+")) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Las horas de laboratorio solo pueden contener numeros"));
+            return;
+        }
+
+        if (unidadAprendizaje.getNombreUnidad().matches(".*\\d.*")) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "No", "El nombre no puede contener numeros"));
+            return;
+        }
 
         unidadAprendizajehelper.modificar(unidadAprendizaje);
-        unidadAprendizaje = new UnidadAprendizaje();
+        actualizar();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Modificacion exitosa", null));
     }
 
