@@ -137,18 +137,11 @@ public class UnidadAprendizajeBeanUI implements Serializable {
 
     public void modificarUnidad() {
 
-        String horasclase = String.valueOf(unidadAprendizaje.getHorasClase());
-        String horastaller = String.valueOf(unidadAprendizaje.getHorasTaller());
-        String horaslab = String.valueOf(unidadAprendizaje.getHorasLaboratorio());
+        String horasclase = String.valueOf(unidadSeleccionada.getHorasClase());
+        String horastaller = String.valueOf(unidadSeleccionada.getHorasTaller());
+        String horaslab = String.valueOf(unidadSeleccionada.getHorasLaboratorio());
 
-        for (UnidadAprendizaje u : unidades) {
-            if (u.getIdunidadAprendizaje() == unidadAprendizaje.getIdunidadAprendizaje()) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Ya existe ese ID"));
-                return;
-            }
-        }
-
-        if (unidadAprendizaje.getNombreUnidad().isEmpty() || horasclase.isEmpty() || horastaller.isEmpty() || horaslab.isEmpty()) {
+        if (unidadSeleccionada.getNombreUnidad().isEmpty() || horasclase.isEmpty() || horastaller.isEmpty() || horaslab.isEmpty()) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Todos los campos son obligatorios"));
             return;
         }
@@ -168,12 +161,12 @@ public class UnidadAprendizajeBeanUI implements Serializable {
             return;
         }
 
-        if (unidadAprendizaje.getNombreUnidad().matches(".*\\d.*")) {
+        if (unidadSeleccionada.getNombreUnidad().matches(".*\\d.*")) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "No", "El nombre no puede contener numeros"));
             return;
         }
 
-        unidadAprendizajehelper.modificar(unidadAprendizaje);
+        unidadAprendizajehelper.modificar(unidadSeleccionada);
         actualizar();
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Modificacion exitosa", null));
     }
